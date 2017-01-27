@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="book">
+  <head>
+    <meta charset="utf-8">
+     		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>personal library app</title>
+    <meta name="description" content=" " />
+    <meta name="author" content=" " />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320" />
+
+    <base href="/">
+    <!-- Use maximum-scale and user-scalable at your own risk. It disables pinch/zoom. Think about usability/accessibility before including.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="/client/app/styles/app.css">
+
+  </head>
+  <body>
+    <a ui-sref="home">home</a>
+    <a ui-sref="books">books list</a>
+    <a ui-sref="createBooks">Add Book</a>
+      <ui-view></ui-view>
+
+
+  <script src="/vendor/lodash/lodash.js"></script>
+  <script src="/vendor/angular/angular.js"></script>
+  <script src="/vendor/angular-resource/angular-resource.js"></script>
+  <script src="/vendor/jquery/dist/jquery.js"></script>
+  <script src="/vendor/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/vendor/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+
+  <script src="/vendor/ngstorage/ngStorage.js"></script>
+
+  <!-- <script src="/vendor/bootstrap/dist/js/bootstrap.js"></script> -->
+
+  <script src="/client/app.js"></script>
+  <script src="/client/app/services/services.js"></script>
+  <script src="/client/app/components/app/const.js"></script>
+  <!-- grunt or gulp injection start -->
+  <script src="/client/app/components/app/app.js"></script>
+  <script src="/client/app/components/booksList/bookslist.js"></script>
+  <script src="/client/app/components/bookCard/bookcard.js"></script>
+  <script src="/client/app/components/bookDetails/bookdetails.js"></script>
+  <script src="/client/app/components/createBook/createBook.js"></script>
+  <script src="/client/app/components/bookUpdate/bookupdate.js"></script>
+  <script src="/client/app/components/login/login.js"></script>
+  <script src="/client/app/components/registration/registration.js"></script>
+  </body>
+</html>

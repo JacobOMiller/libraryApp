@@ -1,0 +1,22 @@
+<form name="register" ng-submit="vm.register()">
+
+
+
+      <label>User Name</label>
+      <input required type="text" ng-model="vm.newUser.username">
+
+
+
+
+
+      <label>Email</label>
+      <input required type="email" ng-model="vm.newUser.email" required>
+
+
+
+      <label>Password</label>
+      <input required type="password" ng-model="vm.newUser.password" minlength="4" maxlength="30">
+
+    <button aria-label="Sign Up" class="btn-success" type="submit">Sign Up</button>
+
+  </form>

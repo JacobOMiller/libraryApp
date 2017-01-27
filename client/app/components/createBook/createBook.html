@@ -1,0 +1,23 @@
+<h2>Create Movie</h2>
+    <div class="panel-body">
+        <form ng-submit="vm.submit()">
+            <div class="form-group">
+                <h3>Title:</h3>
+                <input class="form-control" ng-model="vm.book.title" name="title">
+            </div>
+            <div class="form-group">
+                <h3>Director</h3>
+                <input class="form-control" ng-model="vm.book.author" name="director">
+            </div>
+            <div class="form-group">
+                <h3>Picture Url:</h3>
+                <input class="form-control" ng-model="vm.book.picture" name="picture">
+            </div>
+            <div class="form-group">
+                <h3>description:</h3>
+                <input class="form-control" ng-model="vm.book.description" name="description">
+            </div>
+            <div>
+                <button class="btn btn-warning" type="submit">Create</button>
+            </div>
+        </form>

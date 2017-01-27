@@ -1,0 +1,25 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <label for="title">Title:</label>
+        <h2>{{ vm.book.title }}</h2>
+    </div>
+    <div class="panel-body">
+        <div>
+            <h3>{{ vm.book.author }}</h3>
+        </div>
+        <div>
+            <label for="director">Picture:</label>
+            <img src="{{vm.book.picture}}" type="text" ng-model="vm.book.picture" name="picture">
+        </div>
+        <div>
+            <label for="description">Description</label>
+            <p>{{ vm.book.description }}</p>
+        </div>
+        <div>
+            <button ng-click="vm.goToDetails(vm.book._id)">Details</button>
+        </div>
+        <div>
+            <button ng-click="vm.delete(vm.book)">delete</button>
+        </div>
+    </div>
+</div>
