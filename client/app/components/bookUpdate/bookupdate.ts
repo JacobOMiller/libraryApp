@@ -9,7 +9,8 @@ namespace Book.Components {
         constructor(
             private $stateParams,
             private BookService: Book.Services.BookService,
-            private $state: ng.ui.IStateService
+            private $state: ng.ui.IStateService,
+            private Session: Book.Services.Session
         ) {
           console.log($stateParams['id']);
           BookService.getBook($stateParams['id']).then((result)=>{
@@ -26,6 +27,9 @@ namespace Book.Components {
             }).catch((e) => {
                 throw new Error(e);
             })
+        }
+        isAuthorized(role){
+          return this.Session.isAuthorized(role);
         }
 
     }

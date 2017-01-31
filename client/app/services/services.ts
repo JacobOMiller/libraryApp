@@ -20,9 +20,7 @@ namespace Book.Services {
         deleteBook(book) {
             return this.BookResource.remove({ id: book._id }).$promise
         }
-        createBookshelf() { }
-        updateBookshelf() { }
-        deleteBookshelf() { }
+
 
         constructor(
             $resource: ng.resource.IResourceService) {
@@ -111,6 +109,17 @@ namespace Book.Services {
             this.$sessionStorage.$reset();
             this.$sessionStorage['user'] = {};
         }
+    }
+    export class BookshelfService {
+      constructor(
+        private $resource: ng.resource.IResourceService
+      ){
+
+      }
+
+      createBookshelf() {}
+      updateBookshelf() {}
+      deleteBookshelf() { }
     }
 
     angular.module('book').service('Session', Session);

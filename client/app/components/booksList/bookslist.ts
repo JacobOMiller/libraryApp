@@ -26,15 +26,7 @@ namespace Book.Components {
       console.log(id);
       this.$state.go('books',{id: id});
     }
-    logout(){
-      this.UserService.logout().then(()=>{
-        this.Session.destroy();
-        this.$state.go('login');
-      })
-      .catch((e)=>{
-        throw new Error(e);
-      })
-    }
+  
   }
   angular.module('book').component(name,{
     templateUrl: template,

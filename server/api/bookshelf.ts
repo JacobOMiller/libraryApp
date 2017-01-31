@@ -1,5 +1,6 @@
 import * as express from 'express';
-import BookShelf from './../models/book';
+import BookShelf from './../models/bookshelf';
+import * as methods from '../lib/methods';
 let router = express.Router();
 
 router.get('/bookshelf', (req, res, next) => {
@@ -8,39 +9,45 @@ router.get('/bookshelf', (req, res, next) => {
     res.json(data);
   })
 })
-
-router.post('/books', (req, res, next) => {
-    BookShelf.create(req.body, (e, data) => {
+router.post('/bookshelf', methods.isAuthenticated, (req, res, next) => {
+    BookShelf.create(req.body.username, (e, data) => {
         if (e) return next({
             message: 'could not create bookshelf',
-            Error: e
+            error: e
         });
         res.json(data);
     })
 })
-
-router.put('/books/:id', (req, res, next) => {
+router.put('/bookshelf/:id', methods.isBookshelfOwner, (req, res, next) => {
     BookShelf.update({_id: req.params.id},req.body, {},(e, data) => {
         if (e) return next({
             message: 'could not update books',
-            Error: e
+            error: e
         });
         res.json(data);
     })
 })
-router.delete('/books/:id', (req, res, next) => {
+router.delete('/bookshelf/:id', methods.isBookshelfOwner, (req, res, next) => {
     BookShelf.remove({_id: req.params.id},(e) => {
         if (e) return next({
             message: 'could not delete book',
-            Error: e
+            error: e
         });
         res.json({});
     })
 })
-router.get('/books/:id', (req, res, next) => {
+router.get('/bookshelf/:username', (req, res, next) => {
+  console.log(req.params.username);
+  BookShelf.find({username: req.params.username}, {}, (e, data) => {
+    if (e) return next({ message: 'Could not find books', error:e});
+    console.log(data);
+    res.json(data);
+  })
+})
+router.get('/bookshelf/:id', (req, res, next) => {
   console.log(req.params.id);
   BookShelf.findOne({_id: req.params.id}, {}, (e, data) => {
-    if (e) return next({ message: 'Could not find books', Error:e});
+    if (e) return next({ message: 'Could not find books', error:e});
     console.log(data);
     res.json(data);
   })

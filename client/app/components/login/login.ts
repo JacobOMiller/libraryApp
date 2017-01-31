@@ -14,7 +14,7 @@ namespace Book.Components {
     public login(){
       this.UserService.login(this.user).then((res)=>{
         this.Session.create(res);
-        this.$state.go('home');
+        this.$state.go('home',null,{reload: true});
       })
       .catch((e)=>{
         this.Session.destroy();

@@ -1,6 +1,6 @@
 {{ vm.currentuser }}
 <h2>books list</h2>
-<button class="btn-danger" ng-click="vm.logout()" ng-if="vm.currentuser">logout</button>
+
 <form>
   <book-card ng-repeat="book in vm.books" book="book"></book-card>
 </form>

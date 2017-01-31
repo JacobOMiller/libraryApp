@@ -38,6 +38,9 @@ namespace Book {
                     parent: 'app',
                     url: '/',
                     template: '<book-list></book-list>'
+                    // data: {
+                    //   authorizedRoles:[USER_ROLES.admin]
+                    // }
                 })
                 .state('books', {
                     parent: 'app',

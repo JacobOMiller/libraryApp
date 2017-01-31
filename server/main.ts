@@ -5,6 +5,7 @@ import * as passport from 'passport';
 import * as mongoose from 'mongoose';
 import * as express from 'express';
 import Book from './models/book';
+import Bookshelf from './models/bookshelf';
 import routes from './routes/index';
 import * as logger from 'morgan';
 import * as session from 'express-session';
@@ -63,9 +64,11 @@ mongoose.connection.on('connected', () => {
         admin.roles = ['user', 'admin'];
         admin.save();
     });
+    
   console.log('Get Served!!!!!');
 });
 mongoose.connection.on('error', (e) => {
+
   throw new Error(e);
 });
 // view engine setup
@@ -78,6 +81,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
+app.use('/api', require('./api/bookshelf'));
 app.use('/api', require('./api/book'));
 app.use('/api', require('./api/Users'));
 //static routing

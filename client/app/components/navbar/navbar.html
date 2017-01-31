@@ -1,0 +1,7 @@
+<ul class="nav nav-tabs">
+    <li><a ui-sref="login">login</a></li>
+    <li ng-if="vm.isAuthenticated"><a ui-sref="home">home</a></li>
+    <li ng-if="vm.isAuthenticated"><a ui-sref="createBooks">Add Book</a></li>
+    <li><button class="navbar navbar-btn" ng-click="vm.logout()" ng-if="vm.isAuthenticated">logout</button></li>
+
+</ul>
